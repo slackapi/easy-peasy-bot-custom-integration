@@ -1,7 +1,7 @@
 /* Uses the slack button feature to offer a real time bot to multiple teams */
 var Botkit = require('botkit');
 
-if (!process.env.token || !process.env.PORT) {
+if (!process.env.TOKEN || !process.env.PORT) {
   console.log('Error: Specify token and port in environment');
   process.exit(1);
 }
@@ -21,7 +21,7 @@ if(process.env.MONGOLAB_URI) {
 var controller = Botkit.slackbot(config);
 
 controller.spawn({
-  token: process.env.token
+  token: process.env.TOKEN
 }).startRTM(function(err) {
   if (err) {
     throw new Error(err);
